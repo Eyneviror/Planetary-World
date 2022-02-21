@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class Weapon
+public class Weapon
 {
-	private float timeBetweenEnemySpawn;
-	private Bullet bulletPrefab;
-	private Transform spawnPoint;
-	private float spawnTimer;
-	private bool canSpawn;
-	private float speed;
-
+	 private protected float timeBetweenEnemySpawn;
+	 private protected Bullet bulletPrefab;
+	 private protected Transform spawnPoint;
+	 private protected float spawnTimer;
+	 private protected bool canSpawn;
+	 private protected float speed;
 	public void Init(float delay,Bullet bullet,Transform point)
     {
 		timeBetweenEnemySpawn = delay;
@@ -30,7 +29,7 @@ class Weapon
 		speed = bulletSpeed;
 
 	}
-	public void UpdateTimeShoot()
+	public virtual void UpdateTimeShoot()
 	{
 		if (canSpawn)
 		{
@@ -44,7 +43,7 @@ class Weapon
 		}
 
 	}
-	private void Shoot()
+	protected void Shoot()
 	{
 		Bullet bullet = GameObject.Instantiate(bulletPrefab,spawnPoint.position,spawnPoint.rotation);
 		bullet.Init();

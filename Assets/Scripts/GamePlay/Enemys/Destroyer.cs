@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-
-public class Sniper: Enemy, ICanTakeDamage
-{
-
+﻿using  UnityEngine;
+using  System;
+    public class Destroyer :Enemy,ICanTakeDamage
+    {
+        
     [SerializeField] private AnimationCurve movementAnimation;
     [SerializeField] private float force;
     [SerializeField] private float angleSpeed;
@@ -15,19 +10,22 @@ public class Sniper: Enemy, ICanTakeDamage
     [Header("Weapon Stats")]
     [SerializeField] private float timeBetweenEnemySpawn;
     [SerializeField] private Bullet bulletPrefab;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform[] spawnPoint;
     [SerializeField] private float bulletSpeed;
 
     private float Radius;
     private float currentRadius;
-
-    private Weapon weapon = new Weapon();
+    private Weapon[] weapon;
+    
 
     public override void Init()
     {
         base.Init();
-        weapon.Init(timeBetweenEnemySpawn, bulletPrefab, spawnPoint, bulletSpeed);
-
+        weapon = new Weapon[spawnPoint.Length];
+        for (int i = 0 ; i<weapon.Length;i++)
+        {
+           weapon[i].Init(timeBetweenEnemySpawn, bulletPrefab, spawnPoint[i], bulletSpeed);
+        }
         force = UnityEngine.Random.Range(15, 35);
         angleSpeed = UnityEngine.Random.Range(-angleSpeed - 10, angleSpeed + 10);
     }
@@ -57,7 +55,7 @@ public class Sniper: Enemy, ICanTakeDamage
 
         StartCoroutine(VisibaleEffects.StunRoutine(sr));
     }
-
+    
     private void Update()
     {
         currentRadius = transform.position.magnitude;
@@ -70,11 +68,13 @@ public class Sniper: Enemy, ICanTakeDamage
             {
                 float direction = Mathf.Clamp(currentRadius - Radius, -1, 1);
                 transform.Translate(Vector2.up * moveSpeed * Time.deltaTime*direction);
+            }
+            else
+            {
                 
             }
             LookAtPlanet();
-            weapon.UpdateTimeShoot();
+            //weapon.UpdateTimeShoot();
         }
     }
-}
-
+    }
