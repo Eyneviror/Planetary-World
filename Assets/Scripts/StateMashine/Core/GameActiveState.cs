@@ -29,7 +29,7 @@ public class GameActiveState : IState
     private bool objectsCanMove;
 
 
-    public void Enter()
+    public void Enter(Context context)
     {
         gameTime = 0.0f;
         rocket.canMove = true;
@@ -37,17 +37,17 @@ public class GameActiveState : IState
         objectsCanMove = true;
         GlobalEvents.Rise(new PlanetaryWorld.Events.OnStartGame(objectsCanMove));
     }
-    public void Update()
+    public void Update(Context context)
     {
         gameTime += Time.deltaTime;
         enemySpawner.UpdateTimeSpawn();
         ui.SetTimeElapsed(gameTime);
     }
-    public void LateUpdate()
+    public void LateUpdate(Context context)
     {
         cameraMovement.Move();
     }
-    public void Exit()
+    public void Exit(Context context)
     {
         rocket.canMove = false;
         ui.SetGameUI(true);

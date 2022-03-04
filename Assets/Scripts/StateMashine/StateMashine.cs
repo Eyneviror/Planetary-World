@@ -5,14 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public interface IState
-{
-    public void Enter();
-    public void LateUpdate();
-    public void Update();
-    public void Exit();
-}
-
 public class Context
 {
     private IState currentState;
@@ -21,21 +13,21 @@ public class Context
     {
         if (currentState != null)
         {
-            currentState.Exit();
+            currentState.Exit(this);
         }
 
         currentState = state;
-        currentState.Enter();
+        currentState.Enter(this);
     }
 
     public void UpdateState()
     {
         if (currentState != null)
-            currentState.Update();
+            currentState.Update(this);
     }
     public void LateUpdateState()
     {
         if (currentState != null)
-            currentState.Update();
+            currentState.Update(this);
     }
 }

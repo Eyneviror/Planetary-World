@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//TODO: here is need refactoring	
 public class Rocket : MonoBehaviour
 {
 	public float moveSpeed;

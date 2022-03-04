@@ -15,3 +15,5 @@ MonoBehaviour:
   sniper: {fileID: 8497984972299879508, guid: cb0d52625279b9843bc405e718d90291, type: 3}
   suicider: {fileID: 3565256320259587966, guid: 9ab56dca0eaea1741964e71f1a7f0265,
     type: 3}
+  destroyer: {fileID: 4105658251240662058, guid: 80ed61c95d366234a998b9bab447b4c5,
+    type: 3}

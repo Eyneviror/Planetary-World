@@ -2,6 +2,7 @@
 public enum EnemyType
 {
     Sniper,
-    Suicider
+    Suicider,
+    Destroyer
 }
 

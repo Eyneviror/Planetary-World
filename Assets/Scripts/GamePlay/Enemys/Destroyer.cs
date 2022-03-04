@@ -8,23 +8,18 @@ using  System;
     [SerializeField] private float angleSpeed;
 
     [Header("Weapon Stats")]
-    [SerializeField] private float timeBetweenEnemySpawn;
-    [SerializeField] private Bullet bulletPrefab;
-    [SerializeField] private Transform[] spawnPoint;
-    [SerializeField] private float bulletSpeed;
+    [SerializeField] private EnemyTurret[] turrets;
 
     private float Radius;
     private float currentRadius;
-    private Weapon[] weapon;
-    
+
 
     public override void Init()
     {
         base.Init();
-        weapon = new Weapon[spawnPoint.Length];
-        for (int i = 0 ; i<weapon.Length;i++)
+        for (int i = 0 ; i<turrets.Length;i++)
         {
-           weapon[i].Init(timeBetweenEnemySpawn, bulletPrefab, spawnPoint[i], bulletSpeed);
+           turrets[i].Init();
         }
         force = UnityEngine.Random.Range(15, 35);
         angleSpeed = UnityEngine.Random.Range(-angleSpeed - 10, angleSpeed + 10);

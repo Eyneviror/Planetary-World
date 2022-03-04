@@ -15,7 +15,7 @@ public class EnemyTurret : MonoBehaviour
     private BaseTurret weapon = new BaseTurret();
     private float targetOfAngle;
 
-    private void Start()
+    public void Init()
     {
         weapon.Init(delay, bullet, point, bulletSpeed);
     }
@@ -33,8 +33,8 @@ public class EnemyTurret : MonoBehaviour
 
         Quaternion to = Quaternion.Euler(0, 0, angle - rotationOffset);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, to, angleSpeed);
-        targetOfAngle = Vector3.Angle(transform.up, direction);
-
+        targetOfAngle = Vector3.Angle(transform.up, direction) - 90;
+        Debug.Log("Current angle: " + targetOfAngle);
         weapon.UpdateTargetOfAngle(targetOfAngle);
         weapon.UpdateTimeShoot();
     }

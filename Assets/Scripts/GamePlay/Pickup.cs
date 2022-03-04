@@ -61,5 +61,3 @@ public class Pickup : MonoBehaviour, ICanTakeDamage
 		StartCoroutine(VisibaleEffects.StunRoutine(sr));
 	}
 }
-
-public enum PickupType { Turret, SpeedFire, PlanetShield }

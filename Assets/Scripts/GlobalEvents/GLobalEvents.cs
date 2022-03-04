@@ -58,57 +58,6 @@ public static class GlobalEvents
 
 namespace PlanetaryWorld.Events
 {
-    public class OnStartGame : GlobalGameEvent
-    {
-       public OnStartGame(bool state)
-        {
-            ObjectsCanMove = state;
-        }
-
-       public bool ObjectsCanMove;
-    }
-
-    public class OnEndGame : GlobalGameEvent
-    {
-        public OnEndGame(bool state)
-        {
-            ObjectsCanMove = state;
-        }
-
-        public bool ObjectsCanMove;
-    }
-
-    public class OnPickupAplayed : GlobalGameEvent
-    {
-        public OnPickupAplayed(PickupType currentType)
-        {
-            type = currentType;
-        }
-
-        public PickupType type;
-    }
-    public class OnDefeatObjectNotHeath:GlobalGameEvent
-    {
-    }
-
-    public class OnBulletHit : GlobalGameEvent
-    {
-    }
-
-    public class OnTakedDamage : GlobalGameEvent
-    {
-    }
-
-
-    public enum NewEvents
-    {
-        OnStartGame,
-        OnEndGame,
-        OnPickupAplayed,
-        OnDefeatObjectNotHeath,
-        OnBulletHit,
-        OnTakedDamage
-    }
 }
 
 

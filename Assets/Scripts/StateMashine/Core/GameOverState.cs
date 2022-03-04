@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 class GameOverState : IState
 {
-    public void Enter()
+    public void Enter(Context context)
     {
     }
 
-    public void Exit()
+    public void Exit(Context context)
     {
     }
 
-    public void LateUpdate()
+    public void LateUpdate(Context context)
     {
 
     }
 
-    public void Update()
+    public void Update(Context context)
     {
 
     }

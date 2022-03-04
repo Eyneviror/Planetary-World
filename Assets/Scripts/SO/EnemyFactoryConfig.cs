@@ -11,5 +11,6 @@ public class EnemyFactoryConfig: ScriptableObject
 {
     public Sniper sniper;
     public Suicider suicider;
+    public Destroyer destroyer;
 }
 

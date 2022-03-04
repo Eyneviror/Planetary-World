@@ -33,6 +33,13 @@ public class EnemyFactory
                     count = 4
                 };
                 break;
+            case  EnemyType.Destroyer:
+                return new SpawnData()
+                {
+                    EnemyObject = config.destroyer,
+                    count = 1
+                };
+                break;
         }
         return SpawnData.Empty;
     }

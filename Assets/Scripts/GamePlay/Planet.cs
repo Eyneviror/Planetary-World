@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//TODO: it need refacroting
 public class Planet : MonoBehaviour , ICanTakeDamage 
 {
 

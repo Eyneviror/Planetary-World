@@ -28,7 +28,7 @@ public class PickupHandlerEvents : IHandlerEvent
         GlobalEvents.Unsubscribe<PlanetaryWorld.Events.OnPickupAplayed>(OnPickupAplayed);
     }
 
-    public void OnPickupAplayed(PlanetaryWorld.Events.OnPickupAplayed ev)
+    private void OnPickupAplayed(PlanetaryWorld.Events.OnPickupAplayed ev)
     {
         switch (ev.type)
         {

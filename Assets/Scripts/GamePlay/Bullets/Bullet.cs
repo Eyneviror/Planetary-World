@@ -19,12 +19,11 @@ public class Bullet : MonoBehaviour
 	{
 		if (col.GetInstanceID()!=senderInstanceId)
 		{
-			if (col.gameObject.TryGetComponent<ICanTakeDamage>(out ICanTakeDamage dammagable))
+			if (col.TryGetComponent<ICanTakeDamage>(out ICanTakeDamage dammagable))
 			{
 				dammagable.TakeDamage(typeof(Bullet));
 				SpawnParticleEffect();
 				Destroy(gameObject);
-
 			}
 			GlobalEvents.Rise(new PlanetaryWorld.Events.OnBulletHit());
 		}

@@ -2,6 +2,7 @@
 using  System;
 using Random = UnityEngine.Random;
 
+//TODO: No asset usage.
 public class ThunderEffect : MonoBehaviour
 {
     [SerializeField] private float randomForce;
